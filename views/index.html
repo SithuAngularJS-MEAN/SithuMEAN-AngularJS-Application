@@ -1,15 +1,23 @@
-<!DOCTYPE html>
-<html ng-app="angularjsNodejsTutorial">
-    <head>
-        <title>Integrating AngularJS with NodeJS</title>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.2/angular.js"></script>
-        <script src="javascripts/app.js" type="text/javascript"></script> <!-- not created yet -->
-    </head>
-    <body >
-        <div ng-controller="myController">
-                <ul ng-repeat="item in data">
-                        <li>Name: {{item.name}}, City: {{item.city}}</li>
-                    </ul>
-        </div>
-    </body>
+<!-- //index.html -->
+<!doctype html>
+<html ng-app="myApp" >
+<head>
+<meta charset="utf-8">
+<title>AngularJS Plunker</title>
+<script>document.write('<base href="' + document.location + '" />');</script>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+<link rel="stylesheet" href="stylesheets/style.css">
+<script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script src="public/javascripts/app.js"></script>
+<script src="public/javascripts/controller/loginController.js"></script>
+<script src="public/javascripts/controller/homeController.js"></script>
+<script src="public/javascripts/service/loginService.js"></script>
+</head>
+<body>
+<div class="container" width="100px">
+<h2>AngularJS Simple Login Example</h2>
+<div ui-view></div>
+</div>
+</body>
 </html>
