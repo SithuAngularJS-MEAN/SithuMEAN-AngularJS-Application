@@ -3,7 +3,8 @@ var app = angular.module('myApp');
 app.controller('LoginController', function ($scope, $rootScope, $stateParams, $state, LoginService) {
     $rootScope.title = "AngularJS Login Sample";
     $scope.formSubmit = function () {
-        if (LoginService.login($scope.username, $scope.password)) {
+        LoginService.login($scope.username, $scope.password).then(function(res){
+        if (res == true) {
             $rootScope.userName = $scope.username;
             $scope.error = '';
             $scope.username = '';
@@ -12,5 +13,9 @@ app.controller('LoginController', function ($scope, $rootScope, $stateParams, $s
         } else {
             $scope.error = "Incorrect username/password !";
         }
+        },function(error){
+            console.log("LoginService Error ",error);
+        });
+        
     };
 });

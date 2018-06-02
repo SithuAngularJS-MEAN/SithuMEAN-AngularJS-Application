@@ -23,6 +23,23 @@ router.post('/registerUser',function(req,res,next){
   });
 });
 
+//To validate current credentials as valid or not
+router.post('/isRegisteredUser',function(req,res,next){
+var db = req.db;
+var currentUser = req.body.username;
+var currentPwd = req.body.password;
+var collection = db.get('userRegisterCollection');
+//Checking duplicate entries
+collection.findOne({UserName:currentUser,Password:currentPwd},function(err,result){
+  if(err) throw err;
+  if(result !== null){
+    res.send(true);
+  }else{
+    res.send('');
+  }
+});
+});
+
 module.exports = router;
 
 
